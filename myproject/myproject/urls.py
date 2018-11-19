@@ -26,7 +26,7 @@ from article_app.viewsets import ArticleViewSet
 router = routers.DefaultRouter()
 
 # router.register(r'article', ArticleViewSet)
-router.register(r'article', ArticleViewSet, base_name='article')
+router.register(r'article', ArticleViewSet, base_name='article_app')
 
 
 urlpatterns = [
