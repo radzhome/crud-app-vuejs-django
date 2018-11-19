@@ -15,14 +15,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .routers import router
 from django.views.generic import TemplateView
+from rest_framework import routers
+from django.conf.urls import url
+from django.conf import settings
+
+from article_app.viewsets import ArticleViewSet
+
+
+router = routers.DefaultRouter()
+
+# router.register(r'article', ArticleViewSet)
+router.register(r'article', ArticleViewSet, base_name='article')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    # path('api/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     path('article', TemplateView.as_view(template_name='index.html')),
     path('', TemplateView.as_view(template_name='index.html')),
 
 ]
+# If not debug, nginx will fetch static files
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

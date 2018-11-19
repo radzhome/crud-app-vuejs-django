@@ -99,3 +99,5 @@ Session.vim
 .vscode/
 
 .venv/
+
+static/
