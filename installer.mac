@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+
+# Install homebrew, python, virtualenv
+if [ -z $(which brew) ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+brew install python || true
+pip3 install virtualenv
+
+
+# Create virtualenv for the project, pip install all the things
+VIRTUALENV_DIR=.venv
+virtualenv $VIRTUALENV_DIR --python=python3 --no-site-packages
+. $VIRTUALENV_DIR/bin/activate
+pip install -r requirements.txt
+
+
+# Run migrations
+PROJECT_DIR=myproject
+cd $PROJECT_DIR/
+python manage.py migrate
+
+
+# Setup done message
+echo ""
+echo ""
+echo "Setup completed. Congratulations!!!"
+echo ""
+echo "You can now activate the env and start the server: "
+echo "    . activate_venv.sh && cd ${PROJECT_DIR} && python manage.py runserver"
+echo "Then browse 'http://127.0.0.1:8000'"
+echo ""

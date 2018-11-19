@@ -95,3 +95,7 @@ Session.vim
 
 # Pycharm
 .idea/
+
+.vscode/
+
+.venv/
