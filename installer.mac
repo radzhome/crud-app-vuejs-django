@@ -22,6 +22,9 @@ PROJECT_DIR=myproject
 cd $PROJECT_DIR/
 python manage.py migrate
 
+echo "Create a django admin login:"
+echo ""
+python manage.py createsuperuser
 
 # Setup done message
 echo ""
@@ -30,5 +33,5 @@ echo "Setup completed. Congratulations!!!"
 echo ""
 echo "You can now activate the env and start the server: "
 echo "    . activate_venv.sh && cd ${PROJECT_DIR} && python manage.py runserver"
-echo "Then browse 'http://127.0.0.1:8000'"
-echo ""
+echo "Then browse:"
+echo "    http://127.0.0.1:8000"

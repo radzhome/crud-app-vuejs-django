@@ -36,7 +36,7 @@ new Vue({
       this.$http.get(Vue.http.headers.common['X-API-URL'] + `${id}/`)
           .then((response) => {
             this.currentArticle = response.data;
-            $("#editArticleModal").modal('show');
+            $("#editArticleModal").modal('show')
             this.loading = false;
           })
           .catch((err) => {
@@ -61,8 +61,9 @@ new Vue({
       this.$http.put(Vue.http.headers.common['X-API-URL'] + `${this.currentArticle.article_id}/`, this.currentArticle)
           .then((response) => {
             this.loading = false;
-            this.currentArticle = response.data;
+            this.currentArticle = response.data; // Not really needed since modal closes now
             this.getArticles();
+            $("#editArticleModal").modal('hide')
           })
           .catch((err) => {
             this.loading = false;

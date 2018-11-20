@@ -4,15 +4,15 @@ This repo contains the code used to in the tutorial on the [medium blog](https:/
 
 # Getting Started
 
-clone or download the repo first, then:
+clone or download the repo first, then run installer:
 ```sh
+$ git clone https://github.com/radzhome/crud-app-vuejs-django
+$ cd crud-app-vuejs-django
 $ sh installer.mac
-
 ```
-Follow instructions
+Follow the prompts
 
-License
-----
+# License
 
 MIT
 

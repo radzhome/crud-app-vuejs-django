@@ -101,3 +101,5 @@ Session.vim
 .venv/
 
 static/
+
+db.sqlite3
