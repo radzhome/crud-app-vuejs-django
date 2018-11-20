@@ -18,13 +18,15 @@ pip install -r requirements.txt
 
 
 # Run migrations
-PROJECT_DIR=myproject
+PROJECT_DIR=vue_project
 cd $PROJECT_DIR/
 python manage.py migrate
 
-echo "Create a django admin login:"
-echo ""
-python manage.py createsuperuser
+if [ ! -f ../vue_project/db.sqlite3 ]; then
+  echo "Create a django admin login:"
+  echo ""
+  python manage.py createsuperuser
+fi
 
 # Setup done message
 echo ""
@@ -33,5 +35,6 @@ echo "Setup completed. Congratulations!!!"
 echo ""
 echo "You can now activate the env and start the server: "
 echo "    . activate_venv.sh && cd ${PROJECT_DIR} && python manage.py runserver"
-echo "Then browse:"
+echo "Then browse: "
 echo "    http://127.0.0.1:8000"
+echo ""

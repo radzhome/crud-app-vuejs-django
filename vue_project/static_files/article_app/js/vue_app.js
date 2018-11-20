@@ -50,6 +50,7 @@ new Vue({
           .then((response) => {
             this.loading = true;
             this.getArticles();
+            $("#editArticleModal").modal('hide')
           })
           .catch((err) => {
             this.loading = true;
